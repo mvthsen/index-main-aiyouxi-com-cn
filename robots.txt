@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mvthsen.github.io/index-main-aiyouxi-com-cn/sitemap.xml
