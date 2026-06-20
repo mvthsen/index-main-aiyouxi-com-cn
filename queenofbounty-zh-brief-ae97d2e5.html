@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赏金女王 · 平台介绍 | 快速识别网站用途</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: #f2f4f7;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 2rem 1.25rem;
+            min-height: 100vh;
+        }
+
+        .page-wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.8rem 2.5rem 2.5rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e9edf2;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0b182e;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero .sub {
+            font-size: 1.15rem;
+            color: #475569;
+            max-width: 640px;
+            margin-bottom: 1.6rem;
+        }
+
+        .hero .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 0.75rem;
+        }
+
+        .hero .tag {
+            background: #f8faff;
+            border: 1px solid #dce2ec;
+            border-radius: 40px;
+            padding: 0.3rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #2c3e58;
+        }
+
+        /* ---------- 卡片网格 ---------- */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.75rem;
+            margin: 1.8rem 0 2.2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.75rem 1.6rem 1.8rem;
+            border: 1px solid #e4e9f1;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #0f1d33;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h3 span {
+            font-size: 1.4rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #334155;
+            margin-bottom: 0.8rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card li {
+            font-size: 0.92rem;
+            padding: 0.25rem 0 0.25rem 1.4rem;
+            position: relative;
+            color: #2c3e58;
+        }
+
+        .card li::before {
+            content: "•";
+            position: absolute;
+            left: 0.2rem;
+            color: #5472b3;
+            font-weight: 700;
+        }
+
+        .card .meta-note {
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            color: #5e6f88;
+            border-left: 2px solid #cdd9eb;
+            padding-left: 0.8rem;
+        }
+
+        /* ---------- 全宽卡片（适合人群 + FAQ摘要） ---------- */
+        .full-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            border: 1px solid #e4e9f1;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            margin-bottom: 1.75rem;
+        }
+
+        .full-card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0f1d33;
+            margin-bottom: 1rem;
+        }
+
+        .audience-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 2rem;
+        }
+
+        .audience-item {
+            flex: 1 1 180px;
+            min-width: 140px;
+        }
+
+        .audience-item strong {
+            display: block;
+            font-weight: 600;
+            color: #1f2f48;
+            margin-bottom: 0.15rem;
+            font-size: 1rem;
+        }
+
+        .audience-item span {
+            font-size: 0.9rem;
+            color: #4a5d78;
+        }
+
+        .faq-mini {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 2rem;
+            margin-top: 0.4rem;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #1f2f48;
+            font-size: 0.95rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .faq-a {
+            font-size: 0.9rem;
+            color: #4a5d78;
+            line-height: 1.5;
+        }
+
+        /* ---------- 自然链接段落 ---------- */
+        .link-sentence {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            border: 1px solid #e4e9f1;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            margin: 1.2rem 0 2.2rem;
+            font-size: 1rem;
+            color: #1e293b;
+        }
+
+        .link-sentence a {
+            color: #1d4f8b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .link-sentence a:hover {
+            border-bottom-color: #1d4f8b;
+        }
+
+        .link-sentence .extra-desc {
+            display: block;
+            margin-top: 0.45rem;
+            font-size: 0.9rem;
+            color: #54657e;
+        }
+
+        /* ---------- 页脚 ---------- */
+        .footer-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #7b8aa0;
+            border-top: 1px solid #dce6f0;
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* ---------- 响应式 ---------- */
+        @media (max-width: 740px) {
+            body {
+                padding: 1.2rem 0.9rem;
+            }
+
+            .hero {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+
+            .full-card {
+                padding: 1.4rem 1.2rem;
+            }
+
+            .faq-mini {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .link-sentence {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .audience-grid {
+                flex-direction: column;
+                gap: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- HERO 主视觉 -->
+    <section class="hero">
+        <h1>赏金女王</h1>
+        <div class="sub">以信息卡片方式快速呈现网站定位 · 用途 · 受众 · 常见疑问</div>
+        <div class="tag-row">
+            <span class="tag">🎯 用途识别</span>
+            <span class="tag">📋 场景分类</span>
+            <span class="tag">👥 适合人群</span>
+            <span class="tag">🔍 FAQ 摘要</span>
+        </div>
+    </section>
+
+    <!-- 用途卡片 + 视觉卡片 (两列) -->
+    <div class="grid-2col">
+        <div class="card">
+            <h3><span>🃏</span> 用途识别卡</h3>
+            <p>平台围绕「赏金女王」主题提供信息聚合、规则说明与动态更新。主要用途包括：</p>
+            <ul>
+                <li>了解玩法机制与版本调整</li>
+                <li>查阅主题背景与常见术语</li>
+                <li>获取官方资讯及内容索引</li>
+            </ul>
+            <div class="meta-note">适合快速判断该网站是否匹配自身信息需求。</div>
+        </div>
+
+        <div class="card">
+            <h3><span>🧩</span> 场景速览</h3>
+            <p>以下场景中，用户可通过该站点获得直接帮助：</p>
+            <ul>
+                <li>初次接触主题，希望系统了解框架</li>
+                <li>已有基础认知，需核对具体描述或数据</li>
+                <li>查找官方表述、版本说明或常见问题</li>
+            </ul>
+            <div class="meta-note">每类场景对应不同的信息模块及导航路径。</div>
+        </div>
+    </div>
+
+    <!-- 适合人群 (全宽卡片) -->
+    <div class="full-card">
+        <h2>👤 适合人群</h2>
+        <div class="audience-grid">
+            <div class="audience-item">
+                <strong>规则研读型</strong>
+                <span>偏好结构化文档与条目说明</span>
+            </div>
+            <div class="audience-item">
+                <strong>主题爱好者</strong>
+                <span>关注背景设定与衍生内容</span>
+            </div>
+            <div class="audience-item">
+                <strong>信息确认型</strong>
+                <span>需要核对版本、术语或官方描述</span>
+            </div>
+            <div class="audience-item">
+                <strong>轻度浏览者</strong>
+                <span>通过卡片和摘要快速建立认知</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 (嵌入 a 标签) -->
+    <div class="link-sentence">
+        若想进一步了解主题定义、玩法框架与最新动态，可直接查阅
+        <a href="https://queenofbounty-zh.com">赏金女王</a>
+        站点内各信息板块。页面内容以卡片、列表和常见问答形式组织，便于不同阅读习惯的用户分层获取。
+        <span class="extra-desc">—— 卡片式导航可帮助使用者快速定位感兴趣的部分。</span>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="full-card">
+        <h2>⁉️ 常见疑问摘要</h2>
+        <div class="faq-mini">
+            <div>
+                <div class="faq-q">网站是否提供玩法教学？</div>
+                <div class="faq-a">站点包含基础规则说明与术语解析，建议先浏览用途卡片对应模块。</div>
+            </div>
+            <div>
+                <div class="faq-q">内容更新频率如何？</div>
+                <div class="faq-a">版本调整或新增说明时会同步更新，可通过导航栏查看最近变更。</div>
+            </div>
+            <div>
+                <div class="faq-q">是否需要注册才能阅读？</div>
+                <div class="faq-a">所有信息卡片与说明均公开可读，无需登录或注册。</div>
+            </div>
+            <div>
+                <div class="faq-q">移动设备浏览体验如何？</div>
+                <div class="faq-a">页面采用响应式卡片布局，手机与平板均可获得清晰的信息层级。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        信息卡片式导航 · 面向快速识别网站用途
+    </div>
+
+</div>
+</body>
+</html>
